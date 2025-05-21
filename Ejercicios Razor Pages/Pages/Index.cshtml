@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Ejercicios Razor Pages";
+}
+
+<h1 class="mb-4">Colección de ejercicios</h1>
+
+<div class="list-group">
+    <a asp-page="/Imc" class="list-group-item list-group-item-action">
+        1. Calculadora de IMC
+    </a>
+
+    <a asp-page="/CifradoCesar" class="list-group-item list-group-item-action">
+        2. Cifrado César
+    </a>
+
+    <a asp-page="/Binomio" class="list-group-item list-group-item-action">
+        3. Evaluar (ax + by)<sup>n</sup>
+    </a>
+
+    <a asp-page="/Estadistica" class="list-group-item list-group-item-action">
+        4. Estadística de 20 números aleatorios
+    </a>
+</div>

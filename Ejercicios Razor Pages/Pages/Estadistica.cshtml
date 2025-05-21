@@ -1,0 +1,36 @@
+﻿@page
+@model EstadisticaModel
+@{
+    ViewData["Title"] = "Estadística 20 números";
+}
+
+<h2 class="mb-3">Arreglo de 20 enteros aleatorios (0 – 100)</h2>
+
+<form method="post">
+    <button type="submit" class="btn btn-primary mb-4">Generar</button>
+</form>
+
+@if (Model.Generado)
+{
+    <h5>Arreglo aleatorio</h5>
+    <div class="mb-2">
+        @foreach (var n in Model.Numeros)
+        {
+            <span class="border px-2 py-1 me-1">@n</span>
+        }
+    </div>
+
+    <p><strong>Suma:</strong> @Model.Suma</p>
+    <p><strong>Promedio:</strong> @Model.Promedio.ToString("0.##")</p>
+
+    <h5>Arreglo ordenado</h5>
+    <div class="mb-2">
+        @foreach (var n in Model.Ordenados)
+        {
+            <span class="border px-2 py-1 me-1">@n</span>
+        }
+    </div>
+
+    <p><strong>Moda:</strong> @string.Join(", ", Model.Moda)</p>
+    <p><strong>Mediana:</strong> @Model.Mediana.ToString("0.##")</p>
+}

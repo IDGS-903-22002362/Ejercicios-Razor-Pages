@@ -1,0 +1,40 @@
+﻿@page
+@model CifradoCesarModel
+@{
+    ViewData["Title"] = "Cifrado César";
+}
+
+<h2 class="mb-3">Cifrado César – Codificador / Decodificador</h2>
+
+<form method="post" class="row g-3">
+    <div class="col-12">
+        <label asp-for="Mensaje" class="form-label"></label>
+        <textarea asp-for="Mensaje" class="form-control" rows="3"
+                  placeholder="Escribe tu mensaje en MAYÚSCULAS A-Z"></textarea>
+        <span asp-validation-for="Mensaje" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Desplazamiento" class="form-label"></label>
+        <input asp-for="Desplazamiento" class="form-control" min="1" />
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Acción</label>
+        <select asp-for="Accion" class="form-select">
+            <option value="codificar">Codificar</option>
+            <option value="decodificar">Decodificar</option>
+        </select>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Procesar</button>
+    </div>
+</form>
+
+@if (Model.Procesado)
+{
+    <hr />
+    <h5>Resultado:</h5>
+    <pre class="border p-3 bg-light">@Model.Resultado</pre>
+}

@@ -1,0 +1,44 @@
+﻿@page
+@model BinomioModel
+@{
+    ViewData["Title"] = "Binomio (ax + by)^n";
+}
+
+<h2 class="mb-3">(ax + by)<sup>n</sup> usando el teorema binomial</h2>
+
+<form method="post" class="row g-3">
+    <div class="col-md-2">
+        <label asp-for="A" class="form-label"></label>
+        <input asp-for="A" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <label asp-for="B" class="form-label"></label>
+        <input asp-for="B" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <label asp-for="X" class="form-label"></label>
+        <input asp-for="X" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <label asp-for="Y" class="form-label"></label>
+        <input asp-for="Y" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <label asp-for="N" class="form-label"></label>
+        <input asp-for="N" class="form-control" min="0" />
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Calcular</button>
+    </div>
+</form>
+
+@if (Model.Calculado)
+{
+    <hr />
+    <h5>Valor numérico:</h5>
+    <p class="fs-5"><strong>@Model.ValorNumerico.ToString("G")</strong></p>
+
+    <h5>Expansión:</h5>
+    <p>@Model.ExpresionHtml</p>
+}

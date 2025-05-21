@@ -1,0 +1,36 @@
+﻿@page
+@model ImcModel
+@{
+    ViewData["Title"] = "Calculadora IMC";
+}
+
+<h2 class="mb-3">Calculadora de Índice de Masa Corporal (IMC)</h2>
+
+<form method="post" class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="Peso" class="form-label"></label>
+        <input asp-for="Peso" class="form-control" step="0.01" min="1" />
+        <span asp-validation-for="Peso" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Altura" class="form-label"></label>
+        <input asp-for="Altura" class="form-control" step="0.01" min="0.5" />
+        <span asp-validation-for="Altura" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Calcular</button>
+    </div>
+</form>
+
+@if (Model.Calculado)
+{
+    <hr />
+    <h3>
+        Tu IMC es <strong>@Model.Imc.ToString("0.00")</strong>
+        – Clasificación: <span class="badge bg-info text-dark">@Model.Clasificacion</span>
+    </h3>
+
+    <img src="~/images/@Model.Imagen" alt="@Model.Clasificacion" class="img-fluid mt-3" />
+}
